@@ -37,16 +37,11 @@ public class Server {
     }
 
     private boolean containsForbiddenCharacters(String line) {
-        for (int i = 0; i < line.length(); i++) {
-            if (line.charAt(i) == 'ы' || line.charAt(i) == 'ё' || line.charAt(i) == 'э' || line.charAt(i) == 'ъ') {
-                return true;
-            }
-        }
-        return false;
+        return line.contains("ы") || line.contains("ё") || line.contains("э") || line.contains("ъ");
     }
 
     private boolean validateAnswer(String answer) {
-        return answer.equals("bread") || answer.equals("хліб");
+        return "bread".equals(answer) || "хліб".equals(answer);
     }
 
     private void writeMessage(BufferedWriter writer, Object message) throws IOException {
